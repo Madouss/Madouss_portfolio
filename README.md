@@ -23,16 +23,14 @@ npm run build    # génère le site statique dans ./docs
 
 ## Publication sur GitHub Pages
 
-Le build est configuré pour produire directement les fichiers à la racine de `docs/`
-(avec `baseHref: "/"` et un fichier `.nojekyll`).
+Le build est configuré pour produire le site statique dans `docs/`, avec des
+chemins relatifs (`baseHref: "./"`) et un fichier `.nojekyll`. Le site est publié
+depuis le dossier `docs/` de la branche `main`.
 
-1. Créer un dépôt public nommé `<nom-utilisateur>.github.io`.
-2. Pousser le projet sur la branche `main`.
-3. Dans **Settings → Pages** :
-   - **Source** : *Deploy from a branch*
-   - **Branch** : `main` / dossier `/docs`
-   - Enregistrer.
-4. Le site est publié sur `https://<nom-utilisateur>.github.io/`.
+- Dépôt : https://github.com/Madouss/Madouss_portfolio
+- Site : https://madouss.github.io/Madouss_portfolio/
+
+Réglage GitHub Pages : **Settings → Pages → Deploy from a branch → `main` / `/docs`**.
 
 Après chaque modification : `npm run build`, puis commit/push du dossier `docs` mis à jour.
 
