@@ -1,0 +1,17 @@
+<section class="section" id="profil" aria-labelledby="profil-title">
+  <div class="wrap section-grid">
+    <div class="section-head">
+      <span class="section-mark" aria-hidden="true"></span>
+      <h2 id="profil-title">Profil</h2>
+    </div>
+    <div class="section-body">
+      <p class="lead">{{ profile.aboutLead }}</p>
+      <p>{{ profile.aboutBody }}</p>
+      <ul class="quals" aria-label="Qualités">
+        @for (quality of profile.qualities; track quality) {
+          <li>{{ quality }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

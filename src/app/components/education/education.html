@@ -1,0 +1,21 @@
+<section class="section" id="formation" aria-labelledby="formation-title">
+  <div class="wrap section-grid">
+    <div class="section-head">
+      <span class="section-mark" aria-hidden="true"></span>
+      <h2 id="formation-title">Formation</h2>
+    </div>
+    <div class="section-body">
+      <ul class="edu">
+        @for (item of education; track item.title) {
+          <li class="edu-item">
+            <span class="edu-date">{{ item.date }}</span>
+            <div class="edu-content">
+              <h3 class="entry-title">{{ item.title }}</h3>
+              <p class="entry-org">{{ item.org }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

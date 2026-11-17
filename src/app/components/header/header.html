@@ -1,0 +1,31 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Madoussou Fofana, retour en haut" (click)="closeNav()">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span class="brand-name">{{ profile.fullName }}</span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      [attr.aria-expanded]="navOpen()"
+      aria-controls="nav"
+      [attr.aria-label]="navOpen() ? 'Fermer le menu' : 'Ouvrir le menu'"
+      (click)="toggleNav()"
+    >
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <nav id="nav" class="nav" [class.is-open]="navOpen()" aria-label="Navigation principale">
+      @for (link of links; track link.href) {
+        <a
+          [href]="link.href"
+          [class.is-active]="active() === link.href.slice(1)"
+          (click)="closeNav()"
+        >{{ link.label }}</a>
+      }
+      <a href="#contact" class="nav-cta" (click)="closeNav()">Contact</a>
+    </nav>
+  </div>
+</header>

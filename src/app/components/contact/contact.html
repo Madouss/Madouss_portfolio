@@ -1,0 +1,65 @@
+<section class="section section--contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-main">
+        <span class="section-mark" aria-hidden="true"></span>
+        <h2 id="contact-title">Discutons de votre prochain projet</h2>
+        <p class="contact-lede">
+          Disponible pour un poste ou une mission en développement fullstack.
+          Le plus simple reste l’e-mail — je réponds rapidement.
+        </p>
+        <a class="contact-email" [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+        <div class="contact-actions">
+          <button
+            class="btn btn-ghost btn-copy"
+            type="button"
+            [class.is-copied]="copied()"
+            (click)="copyEmail()"
+          >
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="9" y="9" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+              <path d="M5 15V5a2 2 0 0 1 2-2h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+            <span class="btn-copy-label">{{ copied() ? 'Copié !' : 'Copier l’e-mail' }}</span>
+          </button>
+          <a class="btn btn-primary" [href]="'tel:' + profile.phones[0].tel">
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5L16 12l4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4 5.2 2 2 0 0 1 6.5 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+            </svg>
+            Appeler
+          </a>
+        </div>
+      </div>
+
+      <dl class="contact-facts">
+        <div class="fact">
+          <dt>Téléphone</dt>
+          <dd>
+            @for (phone of profile.phones; track phone.tel) {
+              <a [href]="'tel:' + phone.tel">{{ phone.display }}</a>
+              @if (!$last) {
+                <br />
+              }
+            }
+          </dd>
+        </div>
+        <div class="fact">
+          <dt>E-mail</dt>
+          <dd><a [href]="'mailto:' + profile.email">{{ profile.email }}</a></dd>
+        </div>
+        <div class="fact">
+          <dt>Localisation</dt>
+          <dd>{{ profile.address }}</dd>
+        </div>
+        <div class="fact">
+          <dt>Langue</dt>
+          <dd>{{ profile.language }}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" aria-atomic="true" [class.is-visible]="copied()">
+    E-mail copié dans le presse-papiers.
+  </div>
+</section>

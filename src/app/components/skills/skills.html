@@ -1,0 +1,22 @@
+<section class="section" id="competences" aria-labelledby="competences-title">
+  <div class="wrap section-grid">
+    <div class="section-head">
+      <span class="section-mark" aria-hidden="true"></span>
+      <h2 id="competences-title">Compétences</h2>
+    </div>
+    <div class="section-body">
+      <dl class="skills">
+        @for (group of groups; track group.label) {
+          <div class="skills-row">
+            <dt>{{ group.label }}</dt>
+            <dd>
+              @for (tag of group.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </dd>
+          </div>
+        }
+      </dl>
+    </div>
+  </div>
+</section>
