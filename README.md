@@ -23,16 +23,18 @@ npm run build    # génère le site statique dans ./docs
 
 ## Publication sur GitHub Pages
 
-Le build est configuré pour produire le site statique dans `docs/`, avec des
-chemins relatifs (`baseHref: "./"`) et un fichier `.nojekyll`. Le site est publié
-depuis le dossier `docs/` de la branche `main`.
+Le site est servi par GitHub Pages depuis la **racine** du dépôt (`main`, dossier `/ (root)`),
+avec des chemins relatifs (`baseHref: "./"`) et un fichier `.nojekyll`.
 
 - Dépôt : https://github.com/Madouss/Madouss_portfolio
 - Site : https://madouss.github.io/Madouss_portfolio/
 
-Réglage GitHub Pages : **Settings → Pages → Deploy from a branch → `main` / `/docs`**.
+Le build Angular est généré dans `docs/`, puis copié à la racine. Pour mettre à jour :
 
-Après chaque modification : `npm run build`, puis commit/push du dossier `docs` mis à jour.
+```bash
+npm run deploy                       # build + copie à la racine
+git add -A && git commit -m "maj" && git push
+```
 
 ## Structure
 
